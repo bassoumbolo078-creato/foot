@@ -2,6 +2,7 @@ package com.ism.Services;
 
 import java.util.ArrayList;
 
+import com.ism.Dto.AffichePersonneDto;
 import com.ism.Dto.CreatPersonneDto;
 import com.ism.Entity.AbstractEntity;
 import com.ism.Entity.Entraineur;
@@ -39,9 +40,27 @@ public class PersonneService implements IPersonne {
         
     }
     @Override
-    public ArrayList<AbstractEntity> getAllPersonnes() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllPersonnes'");
+    public ArrayList<AffichePersonneDto> getAllPersonnes(AffichePersonneDto personneDto ) {
+            ArrayList<AbstractEntity> personnes=repo.findAll();
+            ArrayList<AffichePersonneDto> personnesdto=new ArrayList<>();
+            for (AbstractEntity personne: personnes ) {
+                var name= personne.getNameComplete();
+                var dateNaissance=personne.getDateNaissance();
+                var equipe=personne.getEquipe();
+                var type = personne.getTypePersonne();
+                if (type==TypePersonne.ENTRAINEUR) {
+                    Entraineur entraineur=(Entraineur) personne;
+                    var strategie=entraineur.getStrategie();
+                    
+                }else if (type==TypePersonne.JOUEUR) {
+                    Joueur joueur=(Joueur) personne;
+                    var poste=joueur.getPoste();
+                    var numeroMaillot=joueur.getNumeroMaillot();
+                }                
+            }
+            return personnesdto;
+            
+        
     }
 
 

@@ -12,6 +12,14 @@ public class MatriculeService implements IMatriculeService {
         
         
     }
+    @Override
+    public String generateMatriculeEquipe() {
+       
+        return "EQU00" + entier++; 
+        
+        
+        
+    }
 
     
 

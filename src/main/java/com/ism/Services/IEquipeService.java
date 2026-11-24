@@ -2,10 +2,11 @@ package com.ism.Services;
 
 import java.util.ArrayList;
 
-import com.ism.Entity.Equipe;
+import com.ism.Dto.CreatEquipeDto;
+
 
 public interface IEquipeService {
-    boolean AddEquipe(Equipe equipe);
-    ArrayList<Equipe> getAllEquipes();
+    boolean AddEquipe(CreatEquipeDto dto, IMatriculeService mat);
+    ArrayList<CreatEquipeDto> getAllEquipes();
     
 }
