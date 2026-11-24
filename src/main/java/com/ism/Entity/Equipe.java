@@ -14,9 +14,16 @@ import lombok.Builder;
 
 
 public class Equipe {
+    public Equipe(String matricule, String name, Entraineur entraineur, String ville) {
+        this.matricule = matricule;
+        this.name = name;
+        this.entraineur = entraineur;
+        Ville = ville;
+    }
+
     private String matricule;
     private String name;
-    private ArrayList<Joueur> joueurs;
+    private ArrayList<Joueur>  joueurs=new ArrayList<>();
     private Entraineur entraineur;
     private String Ville;
 

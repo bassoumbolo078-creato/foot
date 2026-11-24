@@ -7,7 +7,7 @@ import com.ism.Repository.IEquipeRepository;
 
 public class EquipeRepository implements IEquipeRepository {
     private DataBaseMemory db ;
-    private EquipeRepository(DataBaseMemory db) {
+    public  EquipeRepository(DataBaseMemory db) {
         this.db = db;
     }
 

@@ -51,12 +51,20 @@ public class PersonneService implements IPersonne {
                 if (type==TypePersonne.ENTRAINEUR) {
                     Entraineur entraineur=(Entraineur) personne;
                     var strategie=entraineur.getStrategie();
+                    AffichePersonneDto entraineursDto=new AffichePersonneDto(
+                                name,dateNaissance,equipe,type,null,0 ,   strategie);
+                    personnesdto.add(entraineursDto);
                     
                 }else if (type==TypePersonne.JOUEUR) {
                     Joueur joueur=(Joueur) personne;
                     var poste=joueur.getPoste();
                     var numeroMaillot=joueur.getNumeroMaillot();
-                }                
+                    AffichePersonneDto joueursDto=new AffichePersonneDto(
+                                name,dateNaissance,equipe,type,poste,numeroMaillot, null);
+                    personnesdto.add(joueursDto);
+
+                }
+
             }
             return personnesdto;
             
