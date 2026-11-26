@@ -32,13 +32,30 @@ public class EquipeService  implements IEquipeService{
 
     @Override
     public ArrayList<CreatEquipeDto> getAllEquipes() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllEquipes'");
+        ArrayList<Equipe> equipes = repo.findAll();
+        ArrayList<CreatEquipeDto> equipesDto = new ArrayList<>();
+        for (Equipe equipe : equipes) {
+            var name = equipe.getName();
+            var joueurs = equipe.getJoueurs();
+            var entraineur = equipe.getEntraineur();
+            var ville = equipe.getVille();
+
+            CreatEquipeDto equipeDto = new CreatEquipeDto(
+                    null,
+                    name,
+                    joueurs,
+                    entraineur,
+                    ville
+            );
+            equipesDto.add(equipeDto);
+        }
+        return equipesDto;
     }
     @Override 
     public Equipe getEquipeByMatricule(String matricule) {
         return this.repo.findByMatricule(matricule);
     }
+    
     
 
     

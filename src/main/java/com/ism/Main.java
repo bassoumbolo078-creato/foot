@@ -1,6 +1,7 @@
 package com.ism;
 
 import com.ism.Entity.*;
+import com.ism.Factory.RepositoryFactory;
 import com.ism.Repository.memory.*;
 import com.ism.Services.*;
 import com.ism.view.*;
@@ -8,35 +9,20 @@ import com.ism.view.*;
 public class Main {
     public static void main(String[] args) {
 
-        // 1. Initialisation de la base de données
-        DataBaseMemory db = new DataBaseMemory();
+        EquipeRepository equipeRepository = RepositoryFactory.CreatRepoEquipe();
+        PersonneRepository personneRepository = RepositoryFactory.CreatRepoPersonne();
 
-        // 2. Création des repositories
-        EquipeRepository equipeRepository = new EquipeRepository(db);
-        PersonneRepository personneRepository = new PersonneRepository(db);
-
-        // 3. Création des services
         EquipeService equipeService = new EquipeService(equipeRepository);
         PersonneService personneService = new PersonneService(personneRepository);
 
         // 4. Service de génération des matricules
         MatriculeService matriculeService = new MatriculeService();
-
-        // 5. Menu principal
-        int choix;
-
-        do {
-            System.out.println("\n===== MENU PRINCIPAL =====");
-            System.out.println("1. Ajouter une équipe");
-            System.out.println("2. Ajouter une personne");
-            System.out.println("0. Quitter");
-
-            choix = Integer.parseInt(System.console().readLine());
-
+       
+             var choix = Menu.menu();
             switch (choix) {
                 case 1:
-                    // Ajout d'une équipe
-                    // À compléter avec ta méthode de saisie d'équipe
+                    var equipeDto = EquipeView.saisieEquipe();
+                    equipeService.AddEquipe(equipeDto,matriculeService);
                     break;
 
                 case 2:
@@ -45,14 +31,15 @@ public class Main {
                     personneService.AddPersonne(dto, matriculeService);
                     break;
 
-                case 0:
-                    System.out.println("Au revoir !");
-                    break;
+
+                case 3:
+                     var equipes=EquipeView.lister(equipeService);
+                   
+                   break;
 
                 default:
                     System.out.println("Choix invalide !");
             }
 
-        } while (choix != 0);
     }
 }
