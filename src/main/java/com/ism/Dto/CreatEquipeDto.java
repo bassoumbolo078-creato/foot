@@ -13,14 +13,14 @@ import lombok.Getter;
 public class CreatEquipeDto {
     private String matricule;
     private String name;
-    private ArrayList<Joueur> joueurs;
+    private ArrayList<Joueur> joueurs=new ArrayList<>() ;
     private Entraineur entraineur;
     private String Ville;
 
     public CreatEquipeDto(String matricule, String name, ArrayList<Joueur> joueurs, Entraineur entraineur, String ville) {
         this.name = name;
-        this.joueurs = joueurs;
-        this.entraineur = entraineur;
+        this.joueurs = null;
+        this.entraineur = null;
         this.Ville = ville;
     }
 

@@ -2,6 +2,7 @@ package com.ism.Services;
 
 public class MatriculeService implements IMatriculeService {
     private static int entier = 0;
+    private static int entierEquipe = 0;
 
 
     @Override
@@ -15,7 +16,7 @@ public class MatriculeService implements IMatriculeService {
     @Override
     public String generateMatriculeEquipe() {
        
-        return "EQU00" + entier++; 
+        return "EQU00" + entierEquipe++; 
         
         
         

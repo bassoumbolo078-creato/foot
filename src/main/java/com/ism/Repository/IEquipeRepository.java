@@ -7,6 +7,8 @@ import com.ism.Entity.Equipe;
 public interface IEquipeRepository {
     void save(Equipe equipe);
     ArrayList<Equipe> findAll();
+    Equipe findByMatricule(String matricule) ;
+
     
     
 }

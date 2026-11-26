@@ -21,5 +21,14 @@ public class EquipeRepository implements IEquipeRepository {
     public ArrayList<Equipe> findAll() {
         return new ArrayList<>(this.db.equipes);
     }
+    @Override 
+    public Equipe findByMatricule(String matricule) {
+        for (Equipe equipe : this.db.equipes) {
+            if (equipe.getMatricule().equals(matricule)) {
+                return equipe;
+            }
+        }
+        return null; // Return null if no matching equipe is found
+    }
     
 }

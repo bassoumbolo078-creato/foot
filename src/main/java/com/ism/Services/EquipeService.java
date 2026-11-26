@@ -35,6 +35,11 @@ public class EquipeService  implements IEquipeService{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAllEquipes'");
     }
+    @Override 
+    public Equipe getEquipeByMatricule(String matricule) {
+        return this.repo.findByMatricule(matricule);
+    }
+    
 
     
 }

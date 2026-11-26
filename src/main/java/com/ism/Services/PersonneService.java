@@ -13,7 +13,7 @@ import com.ism.Repository.memory.PersonneRepository;
 
 public class PersonneService implements IPersonne {
     private  final PersonneRepository repo;  
-    private PersonneService(PersonneRepository personneRepository) {
+    public  PersonneService(PersonneRepository personneRepository) {
         this.repo = personneRepository;
     }
     @Override
@@ -67,6 +67,7 @@ public class PersonneService implements IPersonne {
 
             }
             return personnesdto;
+        
             
         
     }

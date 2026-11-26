@@ -30,8 +30,8 @@ public class Equipe {
     public Equipe(String matricule, String name, ArrayList<Joueur> joueurs, Entraineur entraineur, String ville) {
         this.matricule = matricule;
         this.name = name;
-        this.joueurs = joueurs;
-        this.entraineur = entraineur;
+        this.joueurs = null;
+        this.entraineur = null;
         this.Ville = ville;
     }
   

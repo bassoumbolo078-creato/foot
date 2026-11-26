@@ -8,7 +8,7 @@ import com.ism.Entity.Equipe;
 public class DataBaseMemory {
     ArrayList<AbstractEntity> personnes = new ArrayList<>();
     ArrayList<Equipe> equipes = new ArrayList<>();
-    private DataBaseMemory() {
+    public  DataBaseMemory() {
     }
     private static DataBaseMemory instance = null;
     public static DataBaseMemory getInstance() {
